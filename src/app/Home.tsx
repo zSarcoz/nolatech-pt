@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="pt-36 lg:pt-20 w-full h-full flex">
+      <div className="pt-20 lg:pt-10 w-full h-full lg:h-[90vh] flex">
         <div className="w-full lg:w-1/2 flex justify-center items-center flex-col px-4">
           <Image src={img} className="w-full mb-5 flex lg:hidden" loading="lazy" alt="" />
 
@@ -69,7 +69,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-1/2 hidden lg:flex justify-center items-center">
+        <div className="w-1/2  hidden lg:flex justify-center items-center">
           <div className="w-full h-full flex justify-center items-center">
             <Image src={img} className="w-full mr-6 " loading="lazy" alt="" />
           </div>

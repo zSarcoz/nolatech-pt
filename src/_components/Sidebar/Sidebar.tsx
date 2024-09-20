@@ -1,4 +1,3 @@
-
 import * as React from "react"
 
 import Link from "next/link"
@@ -19,11 +18,7 @@ import {
   Badge
 } from "@mui/material"
 
-import {
-  Notifications,
-  AccountCircle,
-  Logout
-} from "@mui/icons-material"
+import { Notifications, AccountCircle, Logout } from "@mui/icons-material"
 import MenuIcon from "@mui/icons-material/Menu"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
 import ChevronRightIcon from "@mui/icons-material/ChevronRight"
@@ -32,15 +27,16 @@ import MailIcon from "@mui/icons-material/Mail"
 
 import useStates from "./_states/useStates"
 
-import { ReactNode } from "react";
+import { ReactNode } from "react"
 
 interface SidebarProps {
-  children: ReactNode;
-  title: string;
+  children: ReactNode
+  title: string
 }
 
 export default function Sidebar({ children, title }: SidebarProps) {
   const {
+    isMobile,
     drawerWidth,
     Main,
     AppBar,
@@ -90,9 +86,7 @@ export default function Sidebar({ children, title }: SidebarProps) {
               maxWidth: "300px",
               mx: "auto"
             }}
-          >
-
-          </Box>
+          ></Box>
           <IconButton color="inherit" sx={{ ml: 2 }}>
             <Badge
               badgeContent={4}
@@ -124,7 +118,7 @@ export default function Sidebar({ children, title }: SidebarProps) {
             boxSizing: "border-box"
           }
         }}
-        variant="persistent"
+        variant="temporary"
         anchor="left"
         open={open}
       >
@@ -140,7 +134,8 @@ export default function Sidebar({ children, title }: SidebarProps) {
         <Divider />
         <List sx={{ backgroundColor: "#efefef" }}>
           {["Dashboard", "Evaluations"].map((text, index) => (
-            <Link key={index}
+            <Link
+              key={index}
               href={
                 index !== 0
                   ? `/dashboard/${text.toLowerCase()}`
@@ -159,10 +154,29 @@ export default function Sidebar({ children, title }: SidebarProps) {
           ))}
         </List>
       </Drawer>
-      <Main open={open} sx={{ maxWidth: "84%" }}>
+
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          maxWidth:"100%",
+          pl: isMobile ? 2 : 40,
+          pr: 2,
+          pt: 5,
+          transition: theme.transitions.create("margin", {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen
+          }),
+          marginLeft: open ? 0 : `-${drawerWidth}px`
+        }}
+      >
         <DrawerHeader />
         {children}
-      </Main>
+      </Box>
+      {/* <Main open={open} sx={{ maxWidth: "84%" }}>
+        <DrawerHeader />
+        {children}
+      </Main> */}
     </Box>
   )
 }

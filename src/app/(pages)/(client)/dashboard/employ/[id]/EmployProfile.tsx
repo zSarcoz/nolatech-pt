@@ -5,11 +5,16 @@ import ArticleIcon from "@mui/icons-material/Article"
 
 import useStates from "./useStates/useStates"
 
+import { useTheme } from "@mui/material/styles"
+import useMediaQuery from "@mui/material/useMediaQuery"
+
 export default function EmployProfile() {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
   const { employ, evaluationHistory } = useStates()
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full ">
       {employ.length > 0 ? (
         <>
           {/* Header */}
@@ -17,28 +22,31 @@ export default function EmployProfile() {
             <div className="flex items-center">
               <Avatar
                 src="https://cdn.fakercloud.com/avatars/ricburton_128.jpg"
-                sx={{ width: "8rem", height: "8rem" }}
+                sx={{
+                  width: isMobile ? "4rem" : "8rem",
+                  height: isMobile ? "4rem" : "8rem"
+                }}
               />
-              <div className="flex flex-col ml-5">
-                <h1 className="font-roboto font-bold text-primary text-3xl">
+              <div className="flex flex-col ml-2 lg:ml-5">
+                <h1 className="font-roboto font-bold text-primary text-2xl lg:text-3xl">
                   {employ[0].name}
                 </h1>
-                <p className="font-roboto text-gray-400">{employ[0].email}</p>
-                <p className="font-roboto text-gray-400">{employ[0].role}</p>
+                <p className="font-roboto text-gray-400 text-sm lg:text-base">{employ[0].email}</p>
+                <p className="font-roboto text-gray-400 text-sm lg:text-base">{employ[0].role}</p>
               </div>
             </div>
             <div className="flex justify-center items-center">
-              <h1 className="text-3xl text-primary">
-              {employ[0].country}
-                <FlagIcon fontSize="large" />
+              <h1 className="text-lg lg:text-3xl text-primary">
+                {employ[0].country}
+                <FlagIcon fontSize={isMobile ? "small" : "large"} />
               </h1>
             </div>
           </div>
 
           {/* Personal & Professional Info */}
-          <div className="mt-10 flex w-full justify-between">
+          <div className="mt-10 flex w-full justify-between flex-col lg:flex-row">
             {/* Personal Info */}
-            <div className="w-2/5 h-60 border-2 border-[#efefef] rounded-xl">
+            <div className="w-full lg:w-2/5 h-60 border-2 border-[#efefef] rounded-xl mb-10 lg:mb-0">
               <h1 className="font-roboto font-bold text-primary text-2xl p-4 text-center">
                 Informacion Personal
               </h1>
@@ -60,12 +68,13 @@ export default function EmployProfile() {
                   <span className="font-bold">Pais:</span> {employ[0].country}
                 </p>
                 <p className="font-roboto ">
-                  <span className="font-bold">Direccion:</span> {employ[0].address}
+                  <span className="font-bold">Direccion:</span>{" "}
+                  {employ[0].address}
                 </p>
               </div>
             </div>
             {/* Professional Info */}
-            <div className="w-2/5 h-60 border-2 border-[#efefef] rounded-xl">
+            <div className="w-full lg:w-2/5 h-60 border-2 border-[#efefef] rounded-xl">
               <h1 className="font-roboto font-bold text-primary text-2xl p-4 text-center">
                 Informacion Profesional
               </h1>
@@ -80,7 +89,8 @@ export default function EmployProfile() {
                   </a>
                 </p>
                 <p className="font-roboto ">
-                  <span className="font-bold">Working years:</span> {employ[0].timeWorking}
+                  <span className="font-bold">Working years:</span>{" "}
+                  {employ[0].timeWorking}
                 </p>
                 <p className="font-roboto ">
                   <span className="font-bold">Pais donde trabaja:</span>{" "}
@@ -99,22 +109,26 @@ export default function EmployProfile() {
               Historial de Evaluaciones
             </h1>
             <div className="mt-5 flex flex-col w-full gap-y-5">
-              {evaluationHistory.map((evaluation)=>(
-                <div key={evaluation.id} className="w-full flex items-center justify-between border-2 border-[#efefef] rounded-xl p-4">
-                <div className="w-1/3 flex items-center gap-5">
-                  <ArticleIcon style={{ color: " #767873" }} />
-                  <h1 className="font-roboto font-bold">
-                    Evaluacion Realizada
-                  </h1>
+              {evaluationHistory.map((evaluation) => (
+                <div
+                  key={evaluation.id}
+                  className="w-full flex items-center justify-between border-2 border-[#efefef] rounded-xl p-4"
+                >
+                  <div className="w-1/5 lg:w-1/3 flex items-center gap-5">
+                    <ArticleIcon style={{ color: " #767873", display: isMobile ? "none" : "flex" }} />
+                    <h1 className="font-roboto font-bold text-sm lg:text-base">
+                      Evaluacion Realizada
+                    </h1>
+                  </div>
+                  <div className="w-1/2 flex items-center justify-end gap-3 lg:gap-10">
+                    <p className="font-roboto font-bold  text-sm lg:text-base">
+                      Fecha: {evaluation.date}
+                    </p>
+                    <p className="font-roboto font-bold text-sm lg:text-base">Estado: Completada</p>
+                    <p className="font-roboto font-bold text-sm lg:text-base">Resultado: 80%</p>
+                  </div>
                 </div>
-                <div className="w-1/2 flex items-center justify-end gap-10">
-                  <p className="font-roboto font-bold">Fecha: {evaluation.date}</p>
-                  <p className="font-roboto font-bold">Estado: Completada</p>
-                  <p className="font-roboto font-bold">Resultado: 80%</p>
-                </div>
-              </div>
               ))}
-              
             </div>
           </div>
         </>

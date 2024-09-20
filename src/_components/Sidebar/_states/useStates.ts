@@ -4,11 +4,13 @@ import { styled, useTheme } from "@mui/material/styles"
 
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar"
 
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useAuthStore } from "@/app/(pages)/(store)/authStore"
 
 export default function useStates() {
-  const drawerWidth = 240
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const drawerWidth = isMobile ? '50%' : 240;
 
   const Main = styled("main", {
     shouldForwardProp: (prop) => prop !== "open"
@@ -73,8 +75,7 @@ export default function useStates() {
 
   const logout = useAuthStore((state) => state.logout)
 
-  const theme = useTheme()
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
 
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -90,6 +91,7 @@ export default function useStates() {
   }
 
   return {
+    isMobile,
     drawerWidth,
     Main,
     AppBar,
