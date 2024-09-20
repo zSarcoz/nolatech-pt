@@ -1,4 +1,3 @@
-
 import {
   BarChart,
   Bar,
@@ -8,7 +7,7 @@ import {
   Tooltip,
   ResponsiveContainer
 } from "recharts"
-  
+
 import MoreVertIcon from "@mui/icons-material/MoreVert"
 
 import EmployesTable from "./tables/employesTable/EmployesTable"
@@ -30,15 +29,18 @@ export default function Dashboard() {
   return (
     <Sidebar title={"Dashboard"}>
       <div className="w-full h-full">
-        <div className="w-full h-96 hidden lg:flex items-center justify-between gap-7">
-          <div className="w-2/6 h-60 bg-white border-2 border-[#efefef]  rounded-2xl items-center flex-col p-5">
+        <div className="w-full h-[85vh] lg:h-96 flex flex-col lg:flex lg:flex-row  items-center justify-normal lg:justify-between gap-5 lg:gap-7">
+          <div className="w-full lg:w-2/6 h-60 bg-white border-2 border-[#efefef]  rounded-2xl items-center flex-col p-5">
             <div className="w-full h-12 flex items-center justify-between mb-4">
               <div className="flex items-center justify-between gap-x-4">
-
-              <h1 className="font-roboto font-bold text-primary text-2xl">
-                Productividad
-              </h1>
-              <Tag title="Nuevo" style={{padding: "1px"}} color="bg-[#a3ddfc]"/>
+                <h1 className="font-roboto font-bold text-primary text-2xl">
+                  Productividad
+                </h1>
+                <Tag
+                  title="Nuevo"
+                  style={{ padding: "1px" }}
+                  color="bg-[#a3ddfc]"
+                />
               </div>
 
               <IconButton
@@ -53,15 +55,13 @@ export default function Dashboard() {
             </div>
             <Typography variant="h5">Empleados</Typography>
             <Typography variant="h2">80%</Typography>
-
           </div>
-          <div className="w-2/6 h-60 bg-white border-2 border-[#efefef]  rounded-2xl items-center flex-col p-5">
+          <div className="w-full lg:w-2/6 h-60 bg-white border-2 border-[#efefef]  rounded-2xl items-center flex-col p-5">
             <div className="w-full h-12 flex items-center justify-between mb-4">
               <div className="flex items-center justify-between gap-x-4">
-
-              <h1 className="font-roboto font-bold text-primary text-2xl">
-                Tareas Completadas
-              </h1>
+                <h1 className="font-roboto font-bold text-primary text-2xl">
+                  Tareas Completadas
+                </h1>
               </div>
 
               <IconButton
@@ -76,9 +76,8 @@ export default function Dashboard() {
             </div>
             <Typography variant="h5">Tareas</Typography>
             <Typography variant="h2">76%</Typography>
-
           </div>
-          <div className="w-2/4 h-60 bg-white border-2 border-[#efefef]  rounded-2xl items-center flex-col p-5">
+          <div className="w-full lg:w-3/5 h-60 border-2 border-[#efefef]  rounded-2xl items-center flex-col p-5">
             <h1 className="font-roboto font-bold text-primary text-2xl mb-4">
               Rendimiento
             </h1>

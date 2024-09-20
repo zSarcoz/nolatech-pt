@@ -14,7 +14,8 @@ import {
   TextField,
   Menu,
   ListItemIcon,
-  ListItemText
+  ListItemText,
+  Tooltip
 } from "@mui/material"
 
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
@@ -216,8 +217,8 @@ const EmployesTable: React.FC = () => {
             <div className="flex flex-row gap-x-4 items-center md:w-full lg:w-[35%]">
               <TextField
                 variant="filled"
-                placeholder="Employ, Perfomance, Eva. or Email"
-                label="Employ"
+                placeholder="Empleado, Rendimiento, Eva. or Email"
+                label="Empleado"
                 style={{ width: "80%" }}
                 value={searchValue}
                 onChange={handleSearchChange}
@@ -287,7 +288,7 @@ const EmployesTable: React.FC = () => {
                     }}
                   >
                     <span className="flex items-center w-full justify-center font-medium">
-                      Actions
+                      Acciones
                     </span>
                   </StyledTableCell>
                 </TableRow>
@@ -339,12 +340,14 @@ const EmployesTable: React.FC = () => {
                               color: "#767873"
                             }}
                             onClick={() => {
-                              // setItemToEdit(row)
                               setOpenViewEvaluation(true)
                               setSelectedEmployeeId(row.id)
                             }}
                           >
+                            <Tooltip title="Ver Evaluacion">
+
                             <VisibilityIcon />
+                            </Tooltip>
                           </IconButton>
                           <IconButton
                             style={{

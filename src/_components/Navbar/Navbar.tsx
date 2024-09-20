@@ -10,7 +10,10 @@ export default function Navbar() {
     <nav
       className={`w-full flex h-20 items-center justify-between px-2 lg:px-5 fixed top-0 left-0 z-50 `}
     >
-      <div className="w-full flex h-20 items-center justify-between bg-white backdrop-blur-sm px-2 lg:px-5 mt-4 rounded-2xl shadow-xl">
+      <div
+        className="w-full shadow-sm flex h-full items-center justify-between bg-white px-1 lg:px-5 pt-2 rounded-2xl"
+        style={{ boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)", marginTop:"1rem" }}
+      >
         <div className="flex items-center gap-5 mr-5">
           <Link href="/">
             <Image
@@ -33,8 +36,7 @@ export default function Navbar() {
               px: "1rem",
               py: ".5rem",
               fontSize: "1rem",
-              textTransform:"none"
-
+              textTransform: "none"
             }}
             onClick={() => router.push("/sign-up")}
           >
@@ -45,11 +47,12 @@ export default function Navbar() {
               backgroundColor: "white",
               color: "black",
               borderRadius: "8px",
-              px: "1rem",
+              width:"8rem",
               py: ".5rem",
+              mr:"1rem",
               fontSize: "1rem",
               boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
-              textTransform:"none"
+              textTransform: "none"
             }}
             onClick={() => router.push("/login")}
           >

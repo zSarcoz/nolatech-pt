@@ -51,7 +51,14 @@ export default function Sidebar({ children, title }: SidebarProps) {
   return (
     <Box sx={{ display: "flex", width: "100%" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open} sx={{ backgroundColor: "#035096" }}>
+      <AppBar
+        position="fixed"
+        open={open}
+        sx={{
+          backgroundColor: "rgba(3, 80, 150, 0.8)", // Color de fondo con transparencia
+          backdropFilter: "blur(10px)"
+        }}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -133,7 +140,7 @@ export default function Sidebar({ children, title }: SidebarProps) {
         </DrawerHeader>
         <Divider />
         <List sx={{ backgroundColor: "#efefef" }}>
-          {["Dashboard", "Evaluations"].map((text, index) => (
+          {["Dashboard", "Evaluaciones"].map((text, index) => (
             <Link
               key={index}
               href={
@@ -159,7 +166,7 @@ export default function Sidebar({ children, title }: SidebarProps) {
         component="main"
         sx={{
           flexGrow: 1,
-          maxWidth:"100%",
+          maxWidth: "100%",
           pl: isMobile ? 2 : 40,
           pr: 2,
           pt: 5,
