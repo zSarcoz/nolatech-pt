@@ -4,7 +4,7 @@ import EvaluationsTable from "./components/EvaluationTable/EvaluationsTable"
 
 export default function Evaluations() {
   return (
-    <Sidebar title={"Evaluations"}>
+    <Sidebar title={"Evaluaciones"}>
       <EvaluationsTable />
     </Sidebar>
   )

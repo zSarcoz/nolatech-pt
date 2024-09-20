@@ -5,6 +5,6 @@ export enum Performance {
 }
 
 export enum EvaluationStatus {
-  EVALUATED = 'Evaluated',
-  NOTEVALUATED = 'Not Evaluated',
+  EVALUATED = 'Evaluado',
+  NOTEVALUATED = 'No Evaluado',
 }

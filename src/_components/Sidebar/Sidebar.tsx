@@ -145,7 +145,11 @@ export default function Sidebar({ children, title }: SidebarProps) {
               key={index}
               href={
                 index !== 0
-                  ? `/dashboard/${text.toLowerCase()}`
+                  ? `/dashboard/${
+                      text === "Evaluaciones"
+                        ? "evaluations"
+                        : text.toLowerCase()
+                    }`
                   : `/${text.toLowerCase()}`
               }
             >

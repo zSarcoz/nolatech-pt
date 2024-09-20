@@ -149,7 +149,7 @@ export default function EvaluationsTable() {
                 <TextField
                   variant="filled"
                   placeholder="Employ Name or Performance"
-                  label="Evaluation"
+                  label="Evaluacion"
                   style={{ width: "80%" }}
                   value={searchValue}
                   onChange={handleSearchChange}
