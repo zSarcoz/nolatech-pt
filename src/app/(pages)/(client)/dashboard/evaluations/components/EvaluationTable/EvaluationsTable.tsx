@@ -148,7 +148,7 @@ export default function EvaluationsTable() {
               <div className="flex flex-row gap-x-4 items-center md:w-full lg:w-[35%]">
                 <TextField
                   variant="filled"
-                  placeholder="Employ Name or Performance"
+                  placeholder="Nombre de empleado o rendimiento"
                   label="Evaluacion"
                   style={{ width: "80%" }}
                   value={searchValue}

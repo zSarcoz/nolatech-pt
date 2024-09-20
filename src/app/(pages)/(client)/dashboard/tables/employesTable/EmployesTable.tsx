@@ -446,9 +446,9 @@ const EmployesTable: React.FC = () => {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
             ActionsComponent={TablePaginationActions}
-            labelRowsPerPage="Employ per page:"
+            labelRowsPerPage="Empleado por pagina:"
             labelDisplayedRows={({ from, to, count }) =>
-              `${from} - ${to} of ${count}`
+              `${from} - ${to} de ${count}`
             }
             slotProps={{
               select: {
