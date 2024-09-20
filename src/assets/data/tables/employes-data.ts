@@ -32,7 +32,7 @@ export const rows: Data[] = [
     timeWorking: "+2 años",
     remotePlaceWorking: "Colombia",
     city: "Medellin",
-    role: "IT Specialist"
+    role: "Especialista IT"
   },
   {
     id: 2,
@@ -64,7 +64,7 @@ export const rows: Data[] = [
     timeWorking: "+2 años",
     remotePlaceWorking: "Venezuela",
     city: "Vargas",
-    role: "Designer "
+    role: "Diseñador"
   },
   {
     id: 4,
@@ -80,7 +80,7 @@ export const rows: Data[] = [
     timeWorking: "+3 años",
     remotePlaceWorking: "Venezuela",
     city: "Caracas",
-    role: "Consultant "
+    role: "Consultor"
   }
 ]
 
