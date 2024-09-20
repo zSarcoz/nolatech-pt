@@ -10,6 +10,17 @@ import customParseFormat from "dayjs/plugin/customParseFormat"
 import useNolaStore from "@/app/(pages)/(store)/nolaStore"
 import { useRouter } from "next/navigation"
 
+interface Evaluation {
+  id: number;
+  employeeId: number;
+  employeeName: string
+  performance: string;
+  comments: string;
+  rating: number;
+  date: string
+  
+}
+
 export default function useStates() {
   const router = useRouter()
 
@@ -89,9 +100,9 @@ export default function useStates() {
 
   const [checked, setChecked] = useState(false)
   const [allChecked, setAllChecked] = useState(false)
-  const [anchorEl, setAnchorEl] = useState(null)
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
 
-  const [openMenuIndex, setOpenMenuIndex] = useState(null)
+  const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(null)
 
   // Modals
   const [isEvaluationModalOpen, setIsEvaluationModalOpen] = useState(false)
@@ -106,7 +117,7 @@ export default function useStates() {
   const [selectedEmployeeName, setSelectedEmployeeName] = useState<string>("")
   const [selectedEmployeeId, setSelectedEmployeeId] = useState<number>(0)
   const [selectedEvaluationId, setSelectedEvaluationId] = useState<number>(0)
-  const [selectedEvaluation, setSelectedEvaluation] = useState()
+  const [selectedEvaluation, setSelectedEvaluation] = useState<Evaluation>()
 
   const employeeSelected = evaluations.filter(
     (test) => test.employeeId === selectedEmployeeId
@@ -163,7 +174,7 @@ export default function useStates() {
 
   const open = Boolean(anchorEl)
 
-  const handleClick = (event, index) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>, index: number) => {
     setAnchorEl(event.currentTarget)
     setOpenMenuIndex(index)
   }

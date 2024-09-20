@@ -24,10 +24,21 @@ import dayjs, { Dayjs } from "dayjs"
 import { CalendarMonth } from "@mui/icons-material"
 import useStates from "./useStates/useStates"
 
+interface Evaluation {
+  id: number;
+  employeeId: number;
+  employeeName: string
+  performance: string;
+  comments: string;
+  rating: number;
+  date: string
+  
+}
+
 interface EvaluationModalProps {
   open: boolean
   onClose: () => void
-  evaluationSelected
+  evaluationSelected: Evaluation
 }
 
 const EditEvaluationModal: React.FC<EvaluationModalProps> = ({
@@ -49,7 +60,7 @@ const EditEvaluationModal: React.FC<EvaluationModalProps> = ({
 
   const resetStates = () => {
     if (evaluationSelected) {
-      setPerformance(evaluationSelected.performance)
+      setPerformance(evaluationSelected.performance as Performance)
       setComments(evaluationSelected.comments)
       setRating(evaluationSelected.rating)
       setDate(dayjs(evaluationSelected.date))
@@ -63,7 +74,7 @@ const EditEvaluationModal: React.FC<EvaluationModalProps> = ({
 
   useEffect(() => {
     if (evaluationSelected) {
-      setPerformance(evaluationSelected.performance)
+      setPerformance(evaluationSelected.performance as Performance)
       setComments(evaluationSelected.comments)
       setRating(evaluationSelected.rating)
       setDate(dayjs(evaluationSelected.date))

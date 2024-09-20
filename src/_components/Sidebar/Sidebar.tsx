@@ -32,7 +32,14 @@ import MailIcon from "@mui/icons-material/Mail"
 
 import useStates from "./_states/useStates"
 
-export default function Sidebar({ children, title }) {
+import { ReactNode } from "react";
+
+interface SidebarProps {
+  children: ReactNode;
+  title: string;
+}
+
+export default function Sidebar({ children, title }: SidebarProps) {
   const {
     drawerWidth,
     Main,

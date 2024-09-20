@@ -75,8 +75,8 @@ export default function useStates() {
   const [deleteModalType, setDeleteModalType] = useState("")
 
 
-  const [anchorEl, setAnchorEl] = useState(null)
-  const [openMenuIndex, setOpenMenuIndex] = useState(null)
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
+  const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(null)
   const [isEvaluationModalOpen, setIsEvaluationModalOpen] = useState(false)
 
 
@@ -89,14 +89,19 @@ export default function useStates() {
     setIsEvaluationModalOpen(false)
   }
 
-  const handleSubmitEvaluation = (evaluationData) => {
+  interface EvaluationData {
+    employeeName: string;
+    performance: string;
+  }
+
+  const handleSubmitEvaluation = (evaluationData: EvaluationData) => {
     console.log("Evaluation Data:", evaluationData)
     // Aquí puedes manejar el envío de los datos de evaluación
   }
 
   const open = Boolean(anchorEl)
 
-  const handleClick = (event, index) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>, index: number) => {
     setAnchorEl(event.currentTarget)
     setOpenMenuIndex(index)
   }

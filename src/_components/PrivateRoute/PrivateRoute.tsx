@@ -3,7 +3,9 @@ import { useAuthStore } from '@/app/(pages)/(store)/authStore';
 import { useRouter } from 'next/navigation';
 import { memo, useEffect, useState } from 'react';
 
-const PrivateRoute = ({ children }) => {
+import { ReactNode } from 'react';
+
+const PrivateRoute = ({ children }: { children: ReactNode }) => {
   const currentUser = useAuthStore((state) => state.currentUser);
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);

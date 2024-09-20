@@ -31,7 +31,7 @@ export default function useStates() {
       } else {
         setError("Invalid username or password")
       }
-    } catch (err) {
+    } catch {
       setError("An error occurred. Please try again.")
     }
   }

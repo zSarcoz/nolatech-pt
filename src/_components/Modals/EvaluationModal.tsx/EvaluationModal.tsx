@@ -1,4 +1,3 @@
-
 import React from "react"
 import {
   Dialog,
@@ -16,9 +15,7 @@ import {
   Box,
   Typography
 } from "@mui/material"
-import {
-  Performance
-} from "@/assets/data/tables/enums/employsEvaluation.enum"
+import { Performance } from "@/assets/data/tables/enums/employsEvaluation.enum"
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers"
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
 import { Dayjs } from "dayjs"
@@ -29,7 +26,15 @@ import useStates from "./useStates/useStates"
 interface EvaluationModalProps {
   open: boolean
   onClose: () => void
-  onSubmit: (evaluationData) => void
+  // onSubmit: (evaluationData: {
+  //   id: number
+  //   employeeId: number
+  //   employeeName: string
+  //   performance: Performance
+  //   comments: string
+  //   rating: number
+  //   date: string | undefined
+  // }) => void
   employeeEmail: string | null
   employName: string
   employeeId: number
@@ -38,7 +43,7 @@ interface EvaluationModalProps {
 const EvaluationModal: React.FC<EvaluationModalProps> = ({
   open,
   onClose,
-  onSubmit,
+  // onSubmit,
   employName,
   employeeEmail,
   employeeId
@@ -65,19 +70,17 @@ const EvaluationModal: React.FC<EvaluationModalProps> = ({
       id: employeeId,
       employeeId: employeeId,
       employeeName: employName,
-      performance: performance,
+      performance: performance || Performance.MEDIUM,
       comments: comments,
       rating: rating ?? 0,
-      date: date?.format("DD/MM/YYYY")
+      date: date?.format("DD/MM/YYYY") || ""
     }
-    onSubmit(newEvaluation)
+    // onSubmit(newEvaluation)
     addEvaluation(newEvaluation)
     handleUpdateEvaluation(employeeEmail)
     resetStates()
     onClose()
   }
-
-
 
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="form-dialog-title">
@@ -88,14 +91,14 @@ const EvaluationModal: React.FC<EvaluationModalProps> = ({
         </DialogContentText>
         <Box
           component="form"
-          onSubmit={handleAddEvaluation}
+          // onSubmit={handleAddEvaluation}
           sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 2 }}
         >
           <TextField label="Employee Name" value={employName} disabled />
           <FormControl required>
             <InputLabel>Performance</InputLabel>
             <Select
-              value={performance}
+              value={performance || Performance.MEDIUM}
               onChange={(e) => setPerformance(e.target.value as Performance)}
             >
               <MenuItem value={Performance.HIGH}>High</MenuItem>

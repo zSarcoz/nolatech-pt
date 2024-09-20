@@ -49,6 +49,17 @@ import useStates from "./useStates/useStates"
 
 import Link from "next/link"
 
+interface Evaluation {
+  id: number;
+  employeeId: number;
+  employeeName: string
+  performance: string;
+  comments: string;
+  rating: number;
+  date: string
+  
+}
+
 dayjs.extend(customParseFormat)
 
 const StyledTableCell = styled(TableCell)({
@@ -475,7 +486,7 @@ const EmployesTable: React.FC = () => {
         employeeId={selectedEmployeeId}
         open={isEvaluationModalOpen}
         onClose={handleCloseEvaluationModal}
-        onSubmit={handleSubmitEvaluation}
+        // onSubmit={handleSubmitEvaluation}
       />
 
       <EmployeeEvaluationModal
@@ -490,7 +501,7 @@ const EmployesTable: React.FC = () => {
       <EditEvaluationModal
        open={isEditEvaluationModalOpen}
        onClose={handleCloseEditEvaluationModal}
-       evaluationSelected={selectedEvaluation}
+       evaluationSelected={selectedEvaluation || {} as Evaluation}
       />
 
       {/* Delete Modal */}
