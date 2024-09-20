@@ -9,16 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#035096",
-        secondary: "#01a3b0",
-        blackBlue: "#02010A",
-        darkBlue: "#140152"
-        // Add more colors to your palette here
+        background: "var(--background)",
+        foreground: "var(--foreground)",
       },
-      fontFamily: {
-        roboto: ["var(--font-roboto)"]
-        }
-    }
+    },
   },
   plugins: [],
 };
