@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="pt-20 lg:pt-10 w-full h-full lg:h-[90vh] flex">
+      <div className="pt-20 lg:pt-10 w-full h-full lg:h-[95vh] flex">
         <div className="w-full lg:w-1/2 flex justify-center items-center flex-col px-4">
           <Image src={img} className="w-full mb-5 flex lg:hidden" loading="lazy" alt="" />
 

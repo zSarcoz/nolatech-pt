@@ -22,7 +22,7 @@ Puedes ver el proyecto desplegado en Vercel [aquí](https://nolatech-pt.vercel.a
 1. **Home**: 
    - Introducción al sistema con opciones de **Sign-up** y **Login**.
    - Diseño minimalista sin acceso a un diseño en Figma, realizado con **Material UI**.
-   - Al registrarse o iniciar sesión, se crea un `currentUser` con credenciales predefinidas (usuario: `user`, contraseña: `user`).
+   - Al registrarse o iniciar sesión, se crea un `currentUser` con credenciales predefinidas que deben ser digitadas para realizar correctamente el proceso de iniciar sesion. Las cuales son: Nombre de usuario: `user`, contraseña: `user`.
 
 2. **Dashboard**:
    - Una vez logueado, redirige al **Dashboard**, donde se muestran widgets con datos estáticos de rendimiento de los empleados.
